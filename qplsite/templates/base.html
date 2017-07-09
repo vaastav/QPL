@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %} Quartet Premier League {% endblock %}</title>
+    </head>
+    <body>
+        <header>
+            <h1> Quartet Premier League 2017-18 </h1>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">singup</a>
+            {% endif %}
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>
