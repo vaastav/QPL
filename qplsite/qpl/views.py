@@ -3,13 +3,13 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
-from qplsite.qpl.forms import SignUpForm
+from qpl.forms import SignUpForm
 
 def index(request):
     return HttpResponse("Hello, world. You're at the QPL index.")
 
 @login_required
-def home(requres):
+def home(request):
     return render(request, 'home.html')
 
 def signup(request):

@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from qpl import views as qpl_views
 
 urlpatterns = [
-    url(r'^qpl/', include('qpl.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^login/', auth_views.login,  {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/', auth_views.logout, {'next_page': 'login'}, name='logout'),
+    url(r'', qpl_views.home, name='home'),
+    url(r'^singup/', qpl_views.signup, name='signup'),
 ]
